@@ -87,14 +87,17 @@ var HighThreadCount = /** @class */ (function (_super) {
     };
     return HighThreadCount;
 }(ClothingOptions));
-var pants = new Pants();
-console.log(pants.cost());
-console.log(pants.getDescription());
-console.log('- Decorate with Silk');
-pants = new Silk(pants);
-console.log(pants.cost());
-console.log(pants.getDescription());
-console.log('- Decorate with HighThreadCount');
-pants = new HighThreadCount(pants);
-console.log(pants.cost());
-console.log(pants.getDescription());
+function decoratorMain() {
+    var pants = new Pants();
+    console.log(pants.cost());
+    console.log(pants.getDescription());
+    console.log('- Decorate with Silk');
+    pants = new Silk(pants);
+    console.log(pants.cost());
+    console.log(pants.getDescription());
+    console.log('- Decorate with HighThreadCount');
+    pants = new HighThreadCount(pants);
+    console.log(pants.cost());
+    console.log(pants.getDescription());
+}
+decoratorMain();

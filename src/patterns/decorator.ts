@@ -58,14 +58,17 @@ class HighThreadCount extends ClothingOptions {
   }
 }
 
-let pants = new Pants();
-console.log(pants.cost());
-console.log(pants.getDescription());
-console.log('- Decorate with Silk');
-pants = new Silk(pants);
-console.log(pants.cost());
-console.log(pants.getDescription());
-console.log('- Decorate with HighThreadCount');
-pants = new HighThreadCount(pants);
-console.log(pants.cost());
-console.log(pants.getDescription());
+function decoratorMain(): void {
+  let pants = new Pants();
+  console.log(pants.cost());
+  console.log(pants.getDescription());
+  console.log('- Decorate with Silk');
+  pants = new Silk(pants);
+  console.log(pants.cost());
+  console.log(pants.getDescription());
+  console.log('- Decorate with HighThreadCount');
+  pants = new HighThreadCount(pants);
+  console.log(pants.cost());
+  console.log(pants.getDescription());
+}
+decoratorMain();
