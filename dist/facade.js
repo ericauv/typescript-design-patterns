@@ -5,6 +5,9 @@ var Plant = /** @class */ (function () {
         this.height = 0;
         this.waterAmount = 0;
     }
+    Plant.prototype.getWaterAmount = function () {
+        return this.waterAmount;
+    };
     Plant.prototype.absorbWater = function (waterAmountToAbsorb) {
         this.waterAmount += waterAmountToAbsorb;
         console.log("Plant(" + this.name + ") absorbed " + waterAmountToAbsorb + " units of water. New waterAmount: " + this.waterAmount);
@@ -25,6 +28,9 @@ var Soil = /** @class */ (function () {
         this.minimumWaterAmount = minimumWaterAmount;
         this.waterAmount = minimumWaterAmount;
     }
+    Soil.prototype.getWaterAmount = function () {
+        return this.waterAmount;
+    };
     Soil.prototype.increaseWater = function (waterIncreaseAmount) {
         this.waterAmount = this.waterAmount + waterIncreaseAmount;
         console.log("Soil(" + this.name + ") increased water amount by " + waterIncreaseAmount + ". New Water Amount: " + this.waterAmount);

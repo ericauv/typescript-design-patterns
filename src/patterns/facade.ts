@@ -9,6 +9,10 @@ class Plant {
     this.waterAmount = 0;
   }
 
+  getWaterAmount() {
+    return this.waterAmount;
+  }
+
   absorbWater(waterAmountToAbsorb: number) {
     this.waterAmount += waterAmountToAbsorb;
     console.log(
@@ -40,6 +44,9 @@ class Soil {
     this.waterAmount = minimumWaterAmount;
   }
 
+  getWaterAmount() {
+    return this.waterAmount;
+  }
   increaseWater(waterIncreaseAmount: number): void {
     this.waterAmount = this.waterAmount + waterIncreaseAmount;
     console.log(
