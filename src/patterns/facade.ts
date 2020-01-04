@@ -1,16 +1,16 @@
-class Plant {
+abstract class Material {
   public name: string;
-  public height: number;
-  private waterAmount: number;
-
+  public waterAmount: number = 0;
   constructor(name: string) {
     this.name = name;
-    this.height = 0;
-    this.waterAmount = 0;
   }
+}
+class Plant extends Material {
+  public height: number;
 
-  getWaterAmount() {
-    return this.waterAmount;
+  constructor(name: string) {
+    super(name);
+    this.height = 0;
   }
 
   absorbWater(waterAmountToAbsorb: number) {
@@ -33,19 +33,13 @@ class Plant {
   }
 }
 
-class Soil {
-  public name: string;
+class Soil extends Material {
   private minimumWaterAmount: number;
-  private waterAmount: number;
 
   constructor(name: string, minimumWaterAmount: number) {
-    this.name = name;
-    this.minimumWaterAmount = minimumWaterAmount;
+    super(name);
     this.waterAmount = minimumWaterAmount;
-  }
-
-  getWaterAmount() {
-    return this.waterAmount;
+    this.minimumWaterAmount = minimumWaterAmount;
   }
   increaseWater(waterIncreaseAmount: number): void {
     this.waterAmount = this.waterAmount + waterIncreaseAmount;
@@ -53,7 +47,6 @@ class Soil {
       `Soil(${this.name}) increased water amount by ${waterIncreaseAmount}. New Water Amount: ${this.waterAmount}`
     );
   }
-
   decreaseWater(waterDecreaseAmount: number): void {
     const proposedNewWaterAmount = this.waterAmount - waterDecreaseAmount;
 
@@ -91,8 +84,8 @@ class PlantSoilSystem {
 
 function facadeMain() {
   const planty = new Plant('Planty');
-  const soily = new Soil('Soily', 14);
-  const system = new PlantSoilSystem('system', planty, soily);
+  const clay = new Soil('Clay', 14);
+  const system = new PlantSoilSystem('system', planty, clay);
 
   system.addWater(4);
   system.addWater(50);
