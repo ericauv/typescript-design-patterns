@@ -3,14 +3,14 @@ var Plant = /** @class */ (function () {
     function Plant(name) {
         this.name = name;
         this.height = 0;
-        this.wateringProgress = 0;
+        this.waterAmount = 0;
     }
-    Plant.prototype.absorbWater = function (waterAmount) {
-        this.wateringProgress += waterAmount;
-        console.log("Plant(" + this.name + ") absorbed " + waterAmount + " units of water. New wateringProgress: " + this.wateringProgress);
-        if (this.wateringProgress >= 100) {
-            this.grow(Math.floor(this.wateringProgress / 100));
-            this.wateringProgress = this.wateringProgress % 100;
+    Plant.prototype.absorbWater = function (waterAmountToAbsorb) {
+        this.waterAmount += waterAmountToAbsorb;
+        console.log("Plant(" + this.name + ") absorbed " + waterAmountToAbsorb + " units of water. New waterAmount: " + this.waterAmount);
+        if (this.waterAmount >= 100) {
+            this.grow(Math.floor(this.waterAmount / 100));
+            this.waterAmount = this.waterAmount % 100;
         }
     };
     Plant.prototype.grow = function (growthAmount) {

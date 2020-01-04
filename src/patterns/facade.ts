@@ -1,23 +1,23 @@
 class Plant {
   public name: string;
   public height: number;
-  private wateringProgress: number;
+  private waterAmount: number;
 
   constructor(name: string) {
     this.name = name;
     this.height = 0;
-    this.wateringProgress = 0;
+    this.waterAmount = 0;
   }
 
-  absorbWater(waterAmount: number) {
-    this.wateringProgress += waterAmount;
+  absorbWater(waterAmountToAbsorb: number) {
+    this.waterAmount += waterAmountToAbsorb;
     console.log(
-      `Plant(${this.name}) absorbed ${waterAmount} units of water. New wateringProgress: ${this.wateringProgress}`
+      `Plant(${this.name}) absorbed ${waterAmountToAbsorb} units of water. New waterAmount: ${this.waterAmount}`
     );
 
-    if (this.wateringProgress >= 100) {
-      this.grow(Math.floor(this.wateringProgress / 100));
-      this.wateringProgress = this.wateringProgress % 100;
+    if (this.waterAmount >= 100) {
+      this.grow(Math.floor(this.waterAmount / 100));
+      this.waterAmount = this.waterAmount % 100;
     }
   }
 
@@ -32,7 +32,7 @@ class Plant {
 class Soil {
   public name: string;
   private minimumWaterAmount: number;
-  public waterAmount: number;
+  private waterAmount: number;
 
   constructor(name: string, minimumWaterAmount: number) {
     this.name = name;
