@@ -6,5 +6,6 @@ Practice implementing the following design patterns in Typescript:
 - Observer
 - Facade
 - Strategy
+- Factory Method
 - Adapter
 - State
