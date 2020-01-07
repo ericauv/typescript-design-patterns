@@ -7,5 +7,3 @@ Practice implementing the following design patterns in Typescript:
 - Facade
 - Strategy
 - Factory Method
-- Adapter
-- State
